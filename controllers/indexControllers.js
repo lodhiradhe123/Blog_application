@@ -1,5 +1,4 @@
 
-const { isLoggedIn } = require('../utils/isLoggedIn');
 
 
 exports.indexpage = (req, res, next) => {
@@ -16,7 +15,7 @@ exports.loginpage = (req, res) => {
 
 }
 
-exports.profilepage = isLoggedIn, (req, res) => {
+exports.profilepage = (req, res) => {
     res.render('profile');
 
 }
