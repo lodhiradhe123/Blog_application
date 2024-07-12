@@ -1,20 +1,15 @@
 var express = require('express');
 var router = express.Router();
 
+const { indexpage, registeruserpage, loginpage, profilepage } = require('../controllers/indexControllers');
+
 /* GET home page. */
-router.get('/', (req, res, next)=> {
-  res.render('index');
-});
+router.get('/',indexpage);
 
-router.get('/createuser',(req ,res)=>{
-  res.render('createuser');
+router.get('/createuser',registeruserpage)
 
-})
+router.get('/login',loginpage)
 
-router.get('/login',(req ,res)=>{
-  res.render('login');
-
-})
-
+router.get('/profile',profilepage)
 
 module.exports = router;

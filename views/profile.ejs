@@ -1,0 +1,55 @@
+<%- include('./partials/header') %> <%- include('./partials/nav') %>
+
+<div
+  class="createuser w-full  bg-zinc-300 flex flex-col justify-center items-center"
+>
+  <div
+    class="profile-image w-2/3 p-5 bg-blue-100 flex flex-col items-center rounded-lg relative"
+  >
+    <section class="upsection w-full h-32 bg-purple-400 rounded-lg"></section>
+    <div
+      class="profile-image w-32 h-32 bg-red-300 absolute left-10 top-10 overflow-hidden rounded-lg p-1"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1488161628813-04466f872be2?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG1vZGVsfGVufDB8fDB8fHww"
+        alt=""
+        class="object-cover rounded-lg"
+      />
+    </div>
+    <section class="downsection w-full mt-8 flex justify-between">
+      <div class="left w-1/3 h-32 text-black p-4">
+        <h1 class="text-2xl font-bold">Name:</h1>
+        <h1 class="text-xl font-regular">@:</h1>
+        <a href="/user/delete/"
+          ><button class="px-4 py-2 bg-red-300 rounded-lg mt-10">
+            Delete
+          </button></a
+        >
+        <a href="/user/update/"
+          ><button class="px-4 py-2 bg-blue-300 rounded-lg mt-10">
+            update
+          </button></a
+        >
+      </div>
+      <div class="right w-1/2 h-32 text-black">
+        <h1 class="text-2xl font-bold">Username:</h1>
+        <h1 class="text-xl font-regular">email:</h1>
+        <a href="/user/reset"
+          ><button class="px-4 py-2 bg-pink-300 rounded-lg mt-14">
+            Reset password
+          </button></a
+        >
+        <a href=""
+          ><button class="px-4 py-2 bg-pink-300 rounded-lg mt-14">
+            Create
+          </button></a
+        >
+      </div>
+    </section>
+  </div>
+  <div class="posts w-full bg-zinc-500 mt-10 p-10 flex gap-10">
+    <div class="posts w-48 h-72 bg-white rounded-lg"></div>
+    
+  </div>
+</div>
+<%- include('./partials/footer') %>
