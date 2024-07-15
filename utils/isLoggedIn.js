@@ -1,11 +1,7 @@
-const User = require('../models/userschema');
 const passport = require('passport');
-const LocalStrategy = require('passport-local');
-passport.use(new LocalStrategy(User.authenticate()));
-
- exports.isLoggedIn = (req,res,next)=>{
-    if(req.isAuthenticated()){
-        next();
+exports.isLoggedIn = (req, res, next) => {
+    if (req.isAuthenticated()) {
+        return next();
     }
     res.redirect('/login')
 }
