@@ -14,12 +14,14 @@ const passport = require('passport');
 const expressSession = require('express-session');
 
 require('./models/connect').mondodb();
+const uploader = require('express-fileupload');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(uploader());
 
 app.use(expressSession({
   secret: 'secretcode',

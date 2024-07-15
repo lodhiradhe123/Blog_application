@@ -17,4 +17,8 @@ router.get('/createpost',isLoggedIn,createpostpage)
 
 router.get('/exploreBlog/:id',explorePage)
 
+router.get('/updateprofile',isLoggedIn,(req,res,next)=>{
+    res.render('updateprofile', {user: req.user })
+})
+
 module.exports = router;
