@@ -4,7 +4,7 @@
   class="main w-full h-screen bg-zinc-300 flex flex-col items-center border-2 border-zinc-300"
 >
   <%- include("./partials/nav") %>
-  <form
+  <!-- <form
     action="/users/updateprofile/<%=user._id%>"
     method="post"
     enctype="multipart/form-data"
@@ -21,13 +21,18 @@
       id=""
       class="px-3 py-2 bg-red-300 rounded mr-20"
     />
-  </form>
+  </form> -->
 
   <form
     action="/users/updateprofile/<%=user._id%>"
     method="post"
+    enctype="multipart/form-data"
     class="w-1/2 p-5 border border-black"
   >
+  <img src="<%=user.profileImage%>" alt="" class="w-32 h-32 rounded" />
+
+  <input type="file" name="image"  id="" class="w-full p-3 rounded-sm mb-2" />
+
     <input
       value="<%=user.fullname%>"
       type="text"

@@ -44,8 +44,17 @@ exports.logoutpage = (req, res, next) => {
 
 exports.updatepage = async (req, res, next) => {
   try {
-    
-    uploadFile(req, res)
+    const user = await User.findByIdAndUpdate(req.params.id, req.body);
+
+    if (req.files) {
+      const result = await uploadFile(req, res)
+      user.profileImage = result.url;
+    }
+    // user.image.fileId = result.fileId;
+    await user.save();
+
+    res.redirect('/profile')
+    console.log(result);
 
 
   } catch (error) {
