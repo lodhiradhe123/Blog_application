@@ -51,11 +51,21 @@ exports.updatepage = async (req, res, next) => {
     }
     // user.image.fileId = result.fileId;
     await user.save();
-
     res.redirect('/profile')
     // console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 
+exports.resetPassword = async (req, res, next) => {
+  try {
+
+    const user = await User.findOne({ _id: req.user._id })
+    await user.setPassword(req.body.password)
+    await user.save()
+    res.redirect('/login')
   } catch (error) {
     console.log(error);
 
