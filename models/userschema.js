@@ -5,8 +5,19 @@ const plm = require('passport-local-mongoose');
 
 const userSchema = mongoose.Schema({
     fullname: String,
-    username: String,
-    email: String,
+    username: {
+        type: String,
+        required: true,
+        
+    },
+    email: {
+        type: String,
+        unique: true,
+        required: true,
+        lowercase: true,
+        match: [/\S+@\S+\.\S+/, 'Invalid email address']
+        
+    },
     password: String,
     
     profileImage: {
@@ -17,7 +28,11 @@ const userSchema = mongoose.Schema({
     posts: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'post'
-    }]
+    }],
+    resetToken:{
+        type: String,
+        default:0,
+    }
 })
 userSchema.plugin(plm);
 

@@ -95,8 +95,13 @@ exports.forgotEmail = async (req, res, next) => {
 exports.forgotPassword = async (req, res, next) => {
   try {
     const user = await User.findOne({ _id: req.params.id });
-    await user.setPassword(req.body.password);
-    await user.save();
+    if(user.resetToken==1){
+      await user.setPassword(req.body.password);
+      user.resetToken= 0;
+      await user.save();
+    }else{
+      res.send('Token expired');
+    }
     res.redirect('/login');
   } catch (error) {
     console.log(error);
