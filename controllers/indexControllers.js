@@ -54,3 +54,11 @@ exports.deleteuserpage = async (req, res, next) => {
 exports.resetPasswordpage = (req, res, next) => {
     res.render('resetPassword', { user: req.user });
 }
+
+exports.forgotEmailpage= (req,res,next)=>{
+    res.render('forgotEmail');
+}
+
+exports.forgotPasswordpage= (req,res,next)=>{
+    res.render('forgotPassword',{id:req.params.id});
+}

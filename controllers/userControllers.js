@@ -5,16 +5,19 @@ const LocalStrategy = require('passport-local');
 const uploadFile = require('./imageuploader');
 passport.use(new LocalStrategy(User.authenticate()));
 
+const sendMail = require('../utils/nodemailer');
+const greetMail = require('../utils/greetingMail');
+
 exports.registerpage = async function (req, res, next) {
   try {
     const { fullname, username, email, password } = req.body;
-    const newUser = await User.register({
+    const user = await User.register({
       fullname,
       username,
       email
     }, password);
 
-    res.redirect('/login');
+    greetMail(res,user)
 
     // User.register(newUser, req.body.password, function(err, user){
     //   if(err){
@@ -76,8 +79,10 @@ exports.forgotEmail = async (req, res, next) => {
   try {
     const { email } = req.body;
     const user = await User.findOne({ email: email });
+    const url = `${req.protocol}://${req.get("host")}/forgotpassword/${user._id}`;
     if (user) {
-      res.render('forgotPassword', { user: user })
+      // res.redirect(`/forgotPassword/${user._id}`)
+      sendMail(res, user, url);
     } else {
       res.send('User not found');
     }
@@ -89,7 +94,7 @@ exports.forgotEmail = async (req, res, next) => {
 
 exports.forgotPassword = async (req, res, next) => {
   try {
-    const user = await User.findOne({_id:req.params.id});
+    const user = await User.findOne({ _id: req.params.id });
     await user.setPassword(req.body.password);
     await user.save();
     res.redirect('/login');
