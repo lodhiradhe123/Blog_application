@@ -39,3 +39,10 @@ exports.explorePage=async(req,res,next)=>{
     const post =await  postSchema.findById(req.params.id)
     res.render('exploreBlog',{post:post,user:req.user});
 }
+
+exports.deleteuserpage = async(req,res,next)=>{
+    await userSchema.findByIdAndDelete(req.params.id)
+    // console.log("deleted");
+    res.redirect('/login')
+
+}

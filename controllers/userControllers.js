@@ -14,7 +14,7 @@ exports.registerpage = async function (req, res, next) {
       email
     }, password);
 
-    res.send("registered successfully");
+    res.redirect('/login');
 
     // User.register(newUser, req.body.password, function(err, user){
     //   if(err){
@@ -45,7 +45,6 @@ exports.logoutpage = (req, res, next) => {
 exports.updatepage = async (req, res, next) => {
   try {
     const user = await User.findByIdAndUpdate(req.params.id, req.body);
-
     if (req.files) {
       const result = await uploadFile(req, res)
       user.profileImage = result.url;
@@ -54,7 +53,7 @@ exports.updatepage = async (req, res, next) => {
     await user.save();
 
     res.redirect('/profile')
-    console.log(result);
+    // console.log(result);
 
 
   } catch (error) {

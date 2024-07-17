@@ -6,8 +6,8 @@
       <h1 class="absolute top-0 fixed text-3xl font-bold"><%=post.title%></h1>
       <br>
       <div class="sroller "><%=post.description%></div>
-      <div class="likecomment">
-        
+      <div class="likecomment absolute bottom-2 text-4xl text-yellow-500 bg-zinc-500">
+        <a href="/post/likes/<%=post._id%>"><i class="ri-thumb-up-line">-<%=post.likes.length%></i></a>
       </div>
     </div>
 

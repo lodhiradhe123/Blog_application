@@ -18,6 +18,8 @@ router.post('/updateprofile/:id',updatepage)
 
 
 
+
+
 // router.post('/updateImage/:id',)
 
 module.exports = router;

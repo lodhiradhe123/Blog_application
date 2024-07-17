@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const {isLoggedIn} = require("../utils/isLoggedIn")
 const userSchema = require('../models/userschema');
-const { indexpage, registeruserpage, loginpage, profilepage, createpostpage, explorePage } = require('../controllers/indexControllers');
+const { indexpage, registeruserpage, loginpage, profilepage, createpostpage, explorePage, deleteuserpage } = require('../controllers/indexControllers');
 
 /* GET home page. */
 router.get('/',indexpage);
@@ -17,8 +17,9 @@ router.get('/createpost',isLoggedIn,createpostpage)
 
 router.get('/exploreBlog/:id',explorePage)
 
-router.get('/updateprofile',isLoggedIn,(req,res,next)=>{
+router.get('/updateprofile/:id',isLoggedIn,(req,res,next)=>{
     res.render('updateprofile', {user: req.user })
 })
+router.get('/deleteuser/:id',deleteuserpage)
 
 module.exports = router;
