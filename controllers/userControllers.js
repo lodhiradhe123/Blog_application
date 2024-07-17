@@ -71,3 +71,29 @@ exports.resetPassword = async (req, res, next) => {
 
   }
 }
+
+exports.forgotEmail = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+    const user = await User.findOne({ email: email });
+    if (user) {
+      res.render('forgotPassword', { user: user })
+    } else {
+      res.send('User not found');
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+exports.forgotPassword = async (req, res, next) => {
+  try {
+    const user = await User.findOne({_id:req.params.id});
+    await user.setPassword(req.body.password);
+    await user.save();
+    res.redirect('/login');
+  } catch (error) {
+    console.log(error);
+  }
+}
