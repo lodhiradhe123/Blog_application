@@ -39,25 +39,27 @@
       <div class="right w-1/2 h-32 text-black">
         <h1 class="text-2xl font-bold">Username:<%=user.email%></h1>
         <h1 class="text-xl font-regular">email:<%=user.username%></h1>
-        <a href="/resetPassword"
-          ><button class="px-4 py-2 bg-pink-300 rounded-lg mt-14">
+        <section class="mt-14 ">
+          <a href="/resetPassword"
+          ><button class="px-4 py-2 bg-pink-300 rounded-lg ">
             Reset password
           </button></a
         >
         <a href="/createpost"
-          ><button class="px-4 py-2 bg-pink-300 rounded-lg mt-14">
+          ><button class="px-4 py-2 bg-pink-300 rounded-lg ">
             Create
           </button></a
         >
-        <a href="/users/logout" class="px-4 py-2 bg-pink-300 rounded-lg mt-14"
+        <a href="/users/logout" class="px-4 py-2 bg-pink-300 rounded-lg "
           >Logout</a
         >
+        </section>
       </div>
     </section>
   </div>
   <!-- //all posts are here! -->
   <div
-    class="posts w-full bg-zinc-500 mt-10 p-10 flex flex-wrap justify-center gap-10"
+    class="posts w-full bg-zinc-300 mt-10 p-10 flex flex-wrap justify-center gap-10"
   >
     <% allPosts.forEach((post,i)=>{%>
     <div
