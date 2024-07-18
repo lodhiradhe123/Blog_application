@@ -24,7 +24,7 @@ app.set('view engine', 'ejs');
 app.use(uploader());
 
 app.use(expressSession({
-  secret: 'secretcode',
+  secret: process.env.SECRETE_KEY,
   resave: false,
   saveUninitialized: true,
 }))
