@@ -2,10 +2,11 @@ var express = require('express');
 var router = express.Router();
 const { isLoggedIn } = require("../utils/isLoggedIn")
 const userSchema = require('../models/userschema');
-const { indexpage, registeruserpage, loginpage, profilepage, createpostpage, explorePage, deleteuserpage, resetPasswordpage, updateprofilepage, forgotEmailpage, forgotPasswordpage } = require('../controllers/indexControllers');
+const { indexpage, registeruserpage, loginpage, profilepage, createpostpage, explorePage, deleteuserpage, resetPasswordpage, updateprofilepage, forgotEmailpage, forgotPasswordpage, allBlogs } = require('../controllers/indexControllers');
 
 /* GET home page. */
 router.get('/', indexpage);
+router.get('/allblogs', allBlogs);
 
 router.get('/createuser', registeruserpage)
 

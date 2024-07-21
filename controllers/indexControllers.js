@@ -6,6 +6,10 @@ exports.indexpage = async (req, res, next) => {
     const allPosts = await postSchema.find()
     res.render('index', { allPosts, user: req.user });
 }
+exports.allBlogs = async (req, res, next) => {
+    const allPosts = await postSchema.find()
+    res.render('allblogs', { allPosts, user: req.user });
+}
 
 exports.registeruserpage = (req, res) => {
     res.render('createuser', { user: req.user });

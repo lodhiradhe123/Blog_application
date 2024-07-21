@@ -1,6 +1,6 @@
 <%- include('./header') %>
 <nav
-  class="w-full px-4 pb-1 flex gap-10 justify-between items-center border-b-2 cursor-pointer"
+  class="w-full z-3 px-4 pb-1 flex gap-10 justify-between items-center border-b-2 cursor-pointer"
 >
   <section class="flex gap-10 text-xl font-semibold">
     <h1 class="text-2xl font-bold tracking-tighter">Blog website</h1>
@@ -8,6 +8,7 @@
   <section class="flex gap-10 text-xl font-semibold">
     <a href="/">Home</a>
     <a href="/createpost">Ceate Blog</a>
+    <a href="/allBlogs">See Blogs</a>
     <a href="/">About</a>
   </section>
   <%if(user){%>

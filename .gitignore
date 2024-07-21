@@ -142,3 +142,6 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/node
+
+
+# mongodb+srv://radhe:Radhe@cluster0.inabss6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
